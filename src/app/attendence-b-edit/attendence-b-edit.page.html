@@ -1,0 +1,94 @@
+<ion-header >
+  <ion-toolbar class="toolbar-background">
+  <ion-buttons slot="start" >
+   <ion-back-button class="button-native"></ion-back-button>
+</ion-buttons>
+<ion-title class="toolbar-title">Attendance edit</ion-title>
+  </ion-toolbar>
+</ion-header> 
+
+
+<ion-content>
+
+    <ion-grid>
+      <ion-row color="primary" justify-content-center>
+        <ion-col align-self-center size-md="6" size-lg="5" size-xs="12">
+          <!-- <div text-center>
+            <h3>Create your account!</h3>
+          </div> -->
+          <div padding style="margin-top: 15px;">
+            <div class="form-group">
+              <label>Project</label>
+               <select class="form-control" [(ngModel)]="project" [ngModelOptions]="{standalone: true}">
+              <option value="" selected="selected">Select one</option>
+              <!-- <option *ngFor="let val of projecy_list; let i = index" value="{{val.ID}}">{{val.project_id}} > {{val.sub_project_id}}</option> -->
+              <option *ngFor="let val of projecy_list; let i = index" value="{{val.sub_project_id}}">{{val.project_name+' ('+val.project_id+')'}} > {{val.sub_project_name+' ('+val.sub_project_id+')'}}  </option>
+            </select>
+              <div class="arrow"><img src="assets/images/select-arrow.png" alt="select arrow" title="" /></div>
+          </div> 
+          <div class="form-group">
+            <label>Attendance category</label>
+             <select class="form-control" #C (change)="selectChange(C.value)" [(ngModel)]="category" [ngModelOptions]="{standalone: true}">
+            <option value="" selected="selected">Select category</option>
+            <option *ngFor="let val of category_list; let i = index" value="{{val.ac_ID}}">{{val.ac_name}}</option>
+          </select>
+            <div class="arrow"><img src="assets/images/select-arrow.png" alt="select arrow" title="" /></div>
+        </div> 
+        <div class="form-group">
+          <label class="time-lable">Start time</label>
+          
+          <ion-datetime class="form-control disable"  displayFormat="HH:mm"  [(ngModel)]="start_time" [ngModelOptions]="{standalone: true}" ></ion-datetime>
+      </div>
+      <div class="form-group">
+        <label class="time-lable">End time</label>
+        
+        <ion-datetime class="form-control disable"  displayFormat="HH:mm"  [(ngModel)]="end_time" [ngModelOptions]="{standalone: true}" ></ion-datetime>
+    </div>
+   
+    <div class="form-group">
+      <label>Work description</label>
+    
+      <input type="text"  class="form-control" placeholder="Enter more information here..." [(ngModel)]="work_description" [ngModelOptions]="{standalone: true}">
+    </div>
+    <div class="form-group">
+      <label>Checkin Location</label>
+     
+      <input type="text" class="form-control" placeholder="" style="pointer-events: none;" value="{{address}}" />
+       </div>
+    <ion-row >
+      <ion-col size="10">
+    <div class="form-group">
+      <label>Checkout Location</label>
+     
+      <input type="text" class="form-control" placeholder="If location does't appear, click on refresh button" style="pointer-events: none;" value="{{address2}}" />
+       </div>
+      </ion-col>
+      <ion-col size="2">
+        <div class="form-control ref_btn" ><span (click)="getLocationRel()" ><ion-icon style="font-size: 35px;
+        color: #00f1b0;" name="refresh-circle-outline"></ion-icon></span></div>
+      </ion-col>
+        
+    </ion-row>
+<!-- <ion-item>
+      <ion-label position="stacked">Image</ion-label>
+      <ion-input type="file" accept="image/*" id="upload"  (ionChange)="imageFilePath_change($event)"></ion-input>
+    </ion-item> -->
+
+          </div>
+          
+        </ion-col>
+      </ion-row>
+    </ion-grid>
+ 
+</ion-content>
+
+<ion-footer class="ion-no-border">
+  <ion-row>
+  <ion-col>
+  
+    <div padding>
+      <button class="btn"  (click)="submit_mode()">Check Out</button>
+    </div>
+  </ion-col>
+  </ion-row>
+  </ion-footer>

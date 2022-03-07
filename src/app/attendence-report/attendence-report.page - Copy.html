@@ -1,0 +1,132 @@
+<ion-header >
+  <ion-toolbar class="toolbar-background">
+  <ion-buttons slot="start" >
+   <ion-back-button class="button-native"></ion-back-button>
+</ion-buttons>
+<ion-title class="toolbar-title">Attendance Report</ion-title>
+  </ion-toolbar>
+</ion-header> 
+<ion-content>
+
+<ion-content>
+
+    <ion-grid>
+      <ion-row color="primary" justify-content-center>
+        <ion-col align-self-center size-md="6" size-lg="5" size-xs="12">
+          <!-- <div text-center>
+            <h3>Create your account!</h3>
+          </div> -->
+          <ion-grid>
+            <ion-row color="primary" justify-content-center>
+              <!-- <ion-col align-self-center size="7" >
+              
+               
+                 <ion-item>
+          
+      <ion-label position="stacked">Year</ion-label>
+          <ion-select #C (ionChange)="selectProject(C.value)" interface="popover" placeholder="Select year" [(ngModel)]="search_project" [ngModelOptions]="{standalone: true}">
+            <ion-select-option  value="2021">2021</ion-select-option>
+          </ion-select>
+        </ion-item> 
+         </ion-col> -->
+         <ion-col align-self-center size="12" >
+          <ion-item>
+          
+      <ion-label position="stacked">Date</ion-label>
+          
+             <ion-datetime #D (ionChange)="selectDate(D.value)" placeholder="Date (M/Y)" displayFormat="MMM/YYYY"  [(ngModel)]="search_date" [ngModelOptions]="{standalone: true}" ></ion-datetime>
+          
+        </ion-item>
+
+       
+        </ion-col>
+        </ion-row>
+
+
+        <ion-row class="ion-margin">
+          <ion-col>
+            <ion-title>
+              <ion-text color="default">
+                Report of {{report_date}}
+              </ion-text>
+            </ion-title>
+          </ion-col>
+        </ion-row>
+<span>
+        <ion-row class="header-row">
+          <ion-col>
+            <ion-text>Total working days</ion-text>
+          </ion-col>
+         
+        </ion-row>
+        <ion-row>
+          <ion-col>
+            <div class="text-center">
+                {{total_workmonth_day}}
+            </div>
+          </ion-col>
+        </ion-row>
+        <br>
+      </span>
+     
+      <span>
+        <ion-row class="header-row">
+          <ion-col>
+            <ion-text>Working days</ion-text>
+          </ion-col>
+          <ion-col>
+            <ion-text>Sundays</ion-text>
+          </ion-col>
+        </ion-row>
+        <ion-row>
+          <ion-col>
+            <div class="text-center">
+              {{total_work_day}}
+            </div>
+          </ion-col>
+          <ion-col>
+            <div class="text-center">
+              {{total_sun_day}}
+            </div>
+          </ion-col>
+        </ion-row>
+        <br>
+      </span>
+
+
+      <span>
+        <ion-row class="header-row">
+          <ion-col>
+            <ion-text>Holiday taken</ion-text>
+          </ion-col>
+          <ion-col>
+            <ion-text>Comp taken</ion-text>
+          </ion-col>
+        </ion-row>
+        <ion-row>
+          <ion-col>
+            <div class="text-center">
+              {{total_holiday_taken}}
+            </div>
+          </ion-col>
+          <ion-col>
+            <div class="text-center">
+              {{total_comp_day}}
+            </div>
+          </ion-col>
+        </ion-row>
+        <br>
+      </span>
+
+
+           
+            
+          </ion-grid>
+          
+        </ion-col>
+      </ion-row>
+    </ion-grid>
+    
+  
+
+</ion-content>

@@ -1,0 +1,113 @@
+<ion-header>
+  <ion-toolbar no-border-bottom class="toolbar-background">
+    
+    <ion-buttons slot="start">
+      <ion-menu-button class="button-native"></ion-menu-button>
+    </ion-buttons>
+    <ion-title  class="toolbar-title">Home</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+ 
+  <!-- <div *ngIf="address">
+  <ion-row>
+    <ion-col>Location </ion-col>
+    <ion-col>{{address}}</ion-col>
+  </ion-row>
+</div> -->
+  
+
+    <ion-grid>
+      
+
+
+      
+      
+ <ion-card class="card-box">
+        <ion-card-header class="card-headbox">
+          <ion-card-subtitle class="card_mntitle">Blood Group</ion-card-subtitle>
+          <!-- <ion-card-title>Attendance</ion-card-title> -->
+        </ion-card-header>
+      
+        <ion-card-content>
+          <ion-row>
+        
+            <ion-col style="text-align: center;" size="3" routerLink="/attendence-expense-add">
+              <ion-icon name="add-circle-outline" class="card_icon"></ion-icon>
+              <ion-card-title class="icon_title">Add</ion-card-title>
+            </ion-col>
+            <ion-col style="text-align: center;" size="3" routerLink="/workexpense-list">
+              <ion-icon name="eye-outline" class="card_icon"></ion-icon>
+              <ion-card-title class="icon_title">View</ion-card-title>
+            </ion-col>
+            <ion-col style="text-align: center;" size="4" > 
+             <ion-card-title class="card_icon" style="font-size: 25px;">TOTAL</ion-card-title>
+              <ion-card-title class="icon_title">{{total_all}}</ion-card-title>
+            </ion-col>
+          </ion-row>
+        </ion-card-content>
+      </ion-card>
+<ion-card class="card-box">
+        <ion-card-header class="card-headbox">
+          <ion-card-subtitle class="card_mntitle">Blood Group Count(+)</ion-card-subtitle>
+          <!-- <ion-card-title>Attendance</ion-card-title> -->
+        </ion-card-header>
+      
+        <ion-card-content>
+          <ion-row>
+        
+            <ion-col style="text-align: center;" size="3"  >
+              <ion-card-title class="card_icon" style="font-size: 25px;">A+</ion-card-title>
+              <ion-card-title class="icon_title">{{total_ap}}</ion-card-title>
+            </ion-col>
+            <ion-col style="text-align: center;" size="3" >
+               <ion-card-title class="card_icon" style="font-size: 25px;">B+</ion-card-title>
+              <ion-card-title class="icon_title">{{total_bp}}</ion-card-title>
+            </ion-col>
+            <ion-col style="text-align: center;" size="3" > 
+              <ion-card-title class="card_icon" style="font-size: 25px;">AB+</ion-card-title>
+              
+              <ion-card-title class="icon_title">{{total_abp}}</ion-card-title>
+            </ion-col>
+            <ion-col style="text-align: center;" size="3" > 
+              <ion-card-title class="card_icon" style="font-size: 25px;">O+</ion-card-title>
+              <ion-card-title class="icon_title">{{total_op}}</ion-card-title>
+            </ion-col>
+          </ion-row>
+        </ion-card-content>
+      </ion-card>
+       
+      <ion-card class="card-box">
+        <ion-card-header class="card-headbox">
+          <ion-card-subtitle class="card_mntitle">Blood Group Count(-)</ion-card-subtitle>
+          <!-- <ion-card-title>Attendance</ion-card-title> -->
+        </ion-card-header>
+      
+        <ion-card-content>
+          <ion-row>
+        
+            <ion-col style="text-align: center;" size="3"  >
+              <ion-card-title class="card_icon" style="font-size: 25px;">A-</ion-card-title>
+              <ion-card-title class="icon_title">{{total_an}}</ion-card-title>
+            </ion-col>
+            <ion-col style="text-align: center;" size="3" >
+               <ion-card-title class="card_icon" style="font-size: 25px;">B-</ion-card-title>
+              <ion-card-title class="icon_title">{{total_bn}}</ion-card-title>
+            </ion-col>
+            <ion-col style="text-align: center;" size="3" > 
+              <ion-card-title class="card_icon" style="font-size: 25px;">AB-</ion-card-title>
+              
+              <ion-card-title class="icon_title">{{total_abn}}</ion-card-title>
+            </ion-col>
+            <ion-col style="text-align: center;" size="3" > 
+              <ion-card-title class="card_icon" style="font-size: 25px;">O-</ion-card-title>
+              <ion-card-title class="icon_title">{{total_on}}</ion-card-title>
+            </ion-col>
+          </ion-row>
+        </ion-card-content>
+      </ion-card>
+
+    </ion-grid>
+  
+</ion-content>

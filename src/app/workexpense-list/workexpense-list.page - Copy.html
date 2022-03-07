@@ -1,0 +1,194 @@
+<ion-header >
+  <ion-toolbar class="toolbar-background">
+  <ion-buttons slot="start" >
+   <ion-back-button class="button-native"></ion-back-button>
+</ion-buttons>
+<ion-title class="toolbar-title">My Expenses</ion-title>
+  </ion-toolbar>
+</ion-header> 
+<ion-content>
+
+<ion-content>
+
+    <ion-grid>
+      <ion-row color="primary" justify-content-center>
+        <ion-col align-self-center size-md="6" size-lg="5" size-xs="12">
+          <!-- <div text-center>
+            <h3>Create your account!</h3>
+          </div> -->
+          <ion-grid>
+            <div>
+            <ion-row>
+              <ion-col size="6">
+                <ion-item-divider  color="light">Today : <div> {{today |  date: ' dd-MMM-yyyy'}}</div></ion-item-divider>
+                 </ion-col>
+              <ion-col size="6">
+                <ion-item-divider  color="light">Total amount : <div> {{total_amount}}</div></ion-item-divider>
+                </ion-col>
+                <!-- <ion-col size="6">
+                  
+                  <ion-button size="small" color="primary" (click)="gotorequestpage()">Return Request</ion-button>
+                </ion-col> -->
+
+
+                </ion-row>
+              </div>
+                <ion-row color="primary" justify-content-center>
+                  <ion-col align-self-center size="7" >
+                  
+                   
+                     <ion-item>
+              
+          <ion-label position="stacked">Project</ion-label>
+              <ion-select #P (ionChange)="selectProject(P.value)" interface="popover" placeholder="Select project" [(ngModel)]="search_project" [ngModelOptions]="{standalone: true}">
+                <ion-select-option *ngFor="let val of project_list; let i = index" value="{{val.sub_project_id}}">{{val.project_id}} > {{val.sub_project_id}}</ion-select-option>
+              </ion-select>
+            </ion-item> 
+             </ion-col>
+             <ion-col align-self-center size="5" >
+              <ion-item>
+              
+          <ion-label position="stacked">Date</ion-label>
+              
+                 <ion-datetime #D (ionChange)="selectDate(D.value)" placeholder="Date (D/M/Y)" displayFormat="DD/MMM/YYYY"  [(ngModel)]="search_date" [ngModelOptions]="{standalone: true}" ></ion-datetime>
+              
+            </ion-item>
+    
+           
+            </ion-col>
+            </ion-row>
+            <ion-row color="primary" justify-content-center>
+              <ion-col align-self-center size="7" >
+              
+               
+                 <ion-item>
+          
+      <ion-label position="stacked">Category</ion-label>
+          <ion-select #C (ionChange)="selectCategory(C.value)" interface="popover" placeholder="Select category" [(ngModel)]="search_category" [ngModelOptions]="{standalone: true}">
+            <ion-select-option *ngFor="let val of category_list; let i = index" value="{{val.ec_ID}}">{{val.ec_name}}</ion-select-option>
+          </ion-select>
+        </ion-item> 
+         </ion-col>
+         <ion-col align-self-center size="5" >
+          <ion-item>
+          
+      <ion-label position="stacked">Status</ion-label>
+          
+      <ion-select #S (ionChange)="selectStatus(S.value)" interface="popover" placeholder="Select status" [(ngModel)]="search_status" [ngModelOptions]="{standalone: true}">
+        <ion-select-option value="active">Success</ion-select-option>
+        <ion-select-option value="inactive">Pending</ion-select-option>
+        <ion-select-option value="reject">Reject</ion-select-option>
+      </ion-select>
+        </ion-item>
+
+       
+        </ion-col>
+        </ion-row>
+           
+            <ion-row class="margin">
+              <ion-col size="12">
+                <div *ngFor="let inneritem of depositData; let i = index">
+                  <ion-item-sliding #slidingItem1 class="submitted-border">
+                    <ion-item lines="none" color="grey">
+                      <div slot="start" class="shortmargin">
+                        <h4>{{(i+1)}}</h4>
+                      </div>
+                      <ion-label class="nomargin">  
+                          <ion-row>
+                            <ion-col size="4">
+                              <h2 class="list-title"><span class="smspan">Amount: </span><br>{{inneritem.uwe_amount}}
+                              <!-- <span *ngIf="inneritem.uw_debit_credit=='dr'" style="color: black;">-Cr</span>
+                              <span *ngIf="inneritem.uw_debit_credit=='cr'" style="color: black;">-Dr</span> -->
+                              </h2>
+                            </ion-col>
+                            <ion-col size="4">
+                              <h2 class="list-title"><span class="smspan"> Status: </span><br>
+                                <ion-badge color="success"  *ngIf="inneritem.status=='active'">Success</ion-badge>
+                                <ion-badge color="warning"  *ngIf="inneritem.status=='inactive'">Pending</ion-badge>
+                                <ion-badge color="danger"  *ngIf="inneritem.status=='reject'">Reject</ion-badge>
+                              </h2>
+                            </ion-col>
+                            <ion-col size="4">
+                              <h2 class="list-title"><span class="smspan"> Date: </span><br>
+                                {{inneritem.uwe_checkindate | date:'MMM dd, yyyy'}}
+                              </h2>
+                            </ion-col>
+                            
+                          </ion-row>
+                          <ion-row>
+                            <ion-col size="6">
+                              <h2 class="list-title"><span class="smspan"> Category: </span><br>
+                                {{inneritem.category_name}}
+                              </h2>
+                            </ion-col>
+                            <ion-col size="6">
+                              <h2 class="list-title"><span class="smspan">Sub category: </span><br>
+                                {{inneritem.subcategory_name}}
+                              </h2>
+                            </ion-col>
+                            <ion-col size="12">
+                              <h2 class="list-title"><span class="smspan"> Reason: </span>
+                                {{inneritem.uwe_description}}
+                              </h2>
+                              </ion-col>
+                              <ion-col size="12" *ngIf="inneritem.status=='reject'">
+                                <h2 class="list-title"><span class="smspan"> Reject: </span>
+                                  {{inneritem.uwe_reject}}
+                                </h2>
+                                </ion-col>
+
+                                <ion-col size="4" *ngIf="inneritem.status=='reject'">
+                                  <h2 class="list-title" (click)="edit_expense(inneritem.uwe_id)"><span class="smspan"> Edit:</span>
+                                    <ion-icon name="create-outline"></ion-icon>
+                                  </h2>
+                                 
+                        
+                                  </ion-col>
+                                  <ion-col size="4" *ngIf="inneritem.status=='reject'">
+                                    <h2 class="list-title" (click)="remove_expense(inneritem.uwe_id)"><span class="smspan"> Delete </span>
+                                      <ion-icon name="close-circle-outline"></ion-icon>
+                                    </h2>
+                                  
+                                    </ion-col>
+                              </ion-row>
+                        </ion-label>
+                       
+                    </ion-item>
+                  </ion-item-sliding>
+                </div>
+
+                <div *ngIf="!depositData.length">
+
+                  <ion-row>
+                    <ion-col size="12">
+   <h2 class="list-title" style="font-size: 22px;color: #af1313;text-align: center; font-weight: 600;"> No record found 
+                       
+                      </h2>
+                      </ion-col>
+                      </ion-row>
+                </div>
+              </ion-col>
+              <!-- <ion-col size="12" *ngIf="total_work_hrs<9">
+                <div class="ion-text-center">
+                <ion-button color="primary" fill="outline" (click)="addAttendence()">
+                  <ion-icon slot="start" name="add-circle-outline"></ion-icon>
+                  Add Attendence
+                </ion-button>
+              </div>
+              </ion-col> -->
+            </ion-row>
+          </ion-grid>
+          <!-- <div padding *ngIf="total_work_hrs==9 && total_work_min==0">
+            <ion-button  size="large" (click)="openMenu()"  expand="block">Submit</ion-button>
+          </div>
+          <div padding *ngIf="total_work_hrs!=9">
+            <ion-button  size="large"  [disabled]="true"  expand="block">Submit</ion-button>
+          </div> -->
+        </ion-col>
+      </ion-row>
+    </ion-grid>
+    
+ 
+  
+
+</ion-content>

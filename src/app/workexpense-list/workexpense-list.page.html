@@ -1,0 +1,220 @@
+<ion-header >
+  <ion-toolbar class="toolbar-background">
+  <ion-buttons slot="start" >
+   <ion-back-button class="button-native"></ion-back-button>
+</ion-buttons>
+<ion-buttons slot="primary">
+  <ion-button (click)="settingsPopover()">
+    <ion-icon style="color:white;" slot="icon-only" ios="ellipsis-horizontal" md="ellipsis-vertical"></ion-icon>
+  </ion-button>
+</ion-buttons>
+<ion-title class="toolbar-title">Blood Group List</ion-title>
+
+  </ion-toolbar>
+</ion-header> 
+
+
+<ion-content>
+  <ion-refresher (ionRefresh)="doRefresh($event)" slot="fixed" pullFactor="0.5" pullMin="100" pullMax="200">
+    <ion-refresher-content style="margin-top: 150px;"></ion-refresher-content>
+  </ion-refresher>
+    <ion-grid>
+      
+               
+            <div>
+            <ion-row>
+              <ion-col size="6">
+                <div class="card-box" >
+                <ion-row>
+                  <ion-col size="2">
+                <ion-icon class="card-icon" name="calendar-outline"></ion-icon>
+                   </ion-col>
+                   <ion-col size="10">
+                <div class="right-box-margin">   <span class="title-today">Today</span> 
+                 <p class="title-date"> {{today |  date: 'dd MMM, yyyy'}}</p>
+                </div>
+                </ion-col>
+                </ion-row>
+                </div>
+              
+             
+             
+            </ion-col>
+           
+                
+              <ion-col size="6">
+                <div class="card-box" >
+                  <ion-row>
+                    <ion-col size="2">
+
+                  <ion-icon class="card-icon" name="checkmark-done-circle-outline"></ion-icon>
+                     </ion-col>
+                     <ion-col size="10">
+                  <div class="right-box-margin">   <span class="title-today">Total</span> 
+                   <p class="title-date">{{total_amount}}</p>
+                  </div>
+                  </ion-col>
+                  </ion-row>
+                  </div>
+                
+                </ion-col>
+               
+                </ion-row>
+              </div>
+              <div class="card-box" style="padding-top: 11px;">
+                <ion-row >
+                  <ion-col align-self-center size="6" >
+                    <div class="form-group">
+                      <label>Blood Group</label>
+                       <select #P (change)="selectProject(P.value)" class="form-control" [(ngModel)]="search_project" [ngModelOptions]="{standalone: true}">
+                      <option value="" selected="selected">Select all</option>
+                      <option value="a_positive">A+</option>
+                                               <option value="b_positive">B+</option>
+                                               <option value="ab_positive">AB+</option>
+                                               <option value="o_positive">O+</option>
+                                               <option value="a_negative">A-</option>
+                                               <option value="b_negative">B-</option>
+                                               <option value="ab_negative">AB-</option>
+                                               <option value="o_negative">O-</option>
+                    </select>
+                      <div class="arrow"><img src="assets/images/select-arrow.png" alt="select arrow" title="" /></div>
+                  </div>
+                   
+                  
+             </ion-col>
+             <ion-col align-self-center size="6" >
+              <div class="form-group"  >
+                <label class="time-lable">Date</label>
+              
+                <ion-datetime [pickerOptions]="customPickerOptionFrom" #D (ionChange)="selectDate(D.value)" class="form-control" placeholder="Date (D/M/Y)" [min]="minDate"  displayFormat="DD/MMM/YYYY"  [(ngModel)]="search_date" [ngModelOptions]="{standalone: true}" ></ion-datetime>
+              </div>
+              
+           
+            </ion-col>
+            
+              <ion-col align-self-center size="6" >
+                <div class="form-group">
+                  <label>Gender</label>
+                   <select class="form-control" #C (change)="selectCategory(C.value)" [(ngModel)]="search_category" [ngModelOptions]="{standalone: true}">
+                  <option value="" selected="selected">Select all</option>
+                  <option value="male">Male</option>
+                                               <option value="female">Female</option>
+                                               <option value="other">Other</option>
+                </select>
+                  <div class="arrow"><img src="assets/images/select-arrow.png" alt="select arrow" title="" /></div>
+              </div>
+                
+         </ion-col>
+         <ion-col align-self-center size="6" >
+          <div class="form-group">
+            <label>Text/no</label>
+             <ion-input #S (keyup)="selectStatus(S.value)" class="form-control" [(ngModel)]="search_status" placeholder="Phone or name" [ngModelOptions]="{standalone: true}"></ion-input>
+              
+            <!-- <div class="arrow"><img src="assets/images/select-arrow.png" alt="select arrow" title="" /></div> -->
+        </div>
+               
+        </ion-col>
+        </ion-row>
+           </div>
+            
+                <div *ngFor="let inneritem of dataMenu; let i = index" class="card-box" style="padding-left: 0;">
+                  
+                    <ion-row >
+                      <ion-col size="1" class="active-col"  >
+                        <h4 class="status-title"><ion-badge  class="ion-badge-suc">{{inneritem.group_name}}</ion-badge>
+                           </h4>
+                      </ion-col>
+                      <ion-col size="11" style="padding-left:11px">
+                      <ion-label class="nomargin">  
+                          <ion-row >
+                            <ion-col size="8">
+                              <h2 class="list-title"><span class="smspan">Name </span><br>
+                               {{inneritem.service_name}}
+                               
+                              </h2>
+                            </ion-col>
+                            <ion-col size="4">
+                              <h2 class="list-title"><span class="smspan">Phone </span><br>
+                               <a style="text-decoration: none;" href="tel:{{inneritem.s_phone}}">{{inneritem.s_phone}}</a>
+                              </h2>
+                            </ion-col>
+                                                      
+                            
+                          </ion-row>
+                          <ion-row>
+                            <ion-col size="4" >
+                              <h2 class="list-title"><span class="smspan"> Date </span><br>
+                                {{inneritem.service_entry_date | date:'MMM dd, yyyy'}}
+                              </h2>
+                            </ion-col>
+                            <ion-col size="4" >
+                              <h2 class="list-title" style="text-align: center;"><span class="smspan"> Age </span><br>
+                                {{inneritem.s_age}}
+                              </h2>
+                            </ion-col>
+                            <ion-col size="4"  >
+                              <h2 class="list-title" style="text-transform: capitalize;"><span class="smspan">Gender </span><br>
+                                {{inneritem.s_gender}}
+                              </h2>
+                            </ion-col>
+                             
+
+                              <ion-col size="5"  >
+                                <ion-button color="primary" expand="block" size="small" fill="outline" (click)="edit_expense(inneritem.service_id )">
+                                  <ion-icon slot="start" name="create-outline"></ion-icon>
+                                  Edit
+                                </ion-button>
+                             
+                    
+                              </ion-col>
+                              <ion-col size="5" >
+                                <ion-button expand="block" size="small" fill="outline" color="danger" (click)="remove_expense(inneritem.service_id )">
+                                  <ion-icon slot="start" name="trash-outline"></ion-icon>
+                                  Delete
+                                </ion-button>
+                                
+                              
+                                </ion-col>
+                                 
+                            <span  *ngIf="inneritem.service_description" style=" font-size: 10px;
+                                font-family: 'Inter Regular';
+                                font-weight: 900;
+                                color: #071662;">Address : {{inneritem.service_description}}</span>
+                              </ion-row>
+                        </ion-label>
+                      </ion-col>
+                    
+                  
+                </ion-row>
+             
+                </div>
+                          <div class="loader_area" *ngIf="loader_val">
+  
+           <div class="loader_box">
+<img src="assets/loader.gif">
+</div>
+
+</div>
+                <div *ngIf="!dataMenu.length && loader_val == false">
+
+                  <ion-row>
+                    <ion-col size="12">
+   <h2 class="list-title" style="font-size: 22px;color: #af1313;text-align: center; font-weight: 600;"> No record found 
+                       
+                      </h2>
+                      </ion-col>
+                      </ion-row>
+                </div>
+             
+         
+         
+        
+    </ion-grid>
+    
+ <ion-infinite-scroll #infiniteScroll (ionInfinite)="loadData($event)">
+    <ion-infinite-scroll-content loadingSpinner="bubbles" loadingText="Loading more data...">
+    </ion-infinite-scroll-content>
+  </ion-infinite-scroll>
+  
+
+</ion-content>

@@ -1,0 +1,69 @@
+<ion-header >
+  <ion-toolbar class="toolbar-background">
+  <ion-buttons slot="start" >
+   <ion-back-button class="button-native"></ion-back-button>
+</ion-buttons>
+<ion-buttons slot="primary">
+  <ion-button (click)="settingsPopover()">
+    <ion-icon style="color:white;" slot="icon-only" ios="ellipsis-horizontal" md="ellipsis-vertical"></ion-icon>
+  </ion-button>
+</ion-buttons>
+<ion-title class="toolbar-title">Comp Leave Request</ion-title>
+  </ion-toolbar>
+</ion-header> 
+
+
+<ion-content>
+
+    <ion-grid>
+      
+    
+      <ion-row color="primary" justify-content-center>
+        <ion-col align-self-center size-md="6" size-lg="5" size-xs="12">
+          <div padding style="margin-top: 15px;">
+            <div class="form-group">
+              <label>Leave create</label>
+               <select class="form-control" [(ngModel)]="leave_type" [ngModelOptions]="{standalone: true}">
+                <option  value="">Select one</option>
+                <option  value="1sthalf">1st Half</option>
+                <option  value="2ndhalf">2nd Half</option>
+                <option  value="fullday">Full Day</option>
+            </select>
+              <div class="arrow"><img src="assets/images/select-arrow.png" alt="select arrow" title="" /></div>
+          </div>
+           <div class="form-group">
+            <label class="time-lable">For whick working date</label>
+           <ion-datetime  class="form-control" placeholder="Date (D/M/Y)"  [max]="minDate" displayFormat="DD/MMM/YYYY"  [(ngModel)]="la_forwhichworkingday" [ngModelOptions]="{standalone: true}" ></ion-datetime>
+              
+        </div>
+          <div class="form-group">
+            <label class="time-lable">Leave Date</label>
+           <ion-datetime class="form-control" [min]="minDate" placeholder="Date (D/M/Y)" displayFormat="DD/MMM/YYYY"  [(ngModel)]="leave_date" [ngModelOptions]="{standalone: true}" ></ion-datetime>
+              
+        </div>
+        <div class="form-group">
+          <label>Reason</label>
+        
+          <input type="text"  class="form-control" placeholder="Enter more information here..." [(ngModel)]="leave_description" [ngModelOptions]="{standalone: true}">
+        </div>
+  
+ 
+
+
+          </div>
+         
+        </ion-col>
+      </ion-row>
+    </ion-grid>
+ 
+</ion-content>
+<ion-footer class="ion-no-border">
+  <ion-row>
+  <ion-col>
+  
+    <div padding>
+      <button class="btn"  (click)="submit_mode()">Submit</button>
+    </div>
+  </ion-col>
+  </ion-row>
+  </ion-footer>

@@ -1,0 +1,69 @@
+<ion-app>
+  <ion-split-pane contentId="main-content">
+    <ion-menu contentId="main-content" type="overlay">
+      <ion-content>
+    <div class="body_warrper">
+        
+        <div class="menu_area">
+     <div class="menu_profile">
+        <div class="w-100">
+          <div class="menu_img" *ngIf="!userDetails?.avatar">
+            <img src="assets/images/menu-icon.jpg" alt="icon" title="">
+          </div>
+          <div class="menu_img" *ngIf="userDetails?.avatar">
+           <img src="{{imag_path + userDetails?.avatar}}" alt="">
+          </div>
+          <h1>{{userDetails?.first_name}}</h1>
+          <h1 *ngIf="!userDetails?.first_name">ABC</h1>
+          <p>{{userDetails?.email}}</p>
+          
+        </div>
+      </div>
+      <div class="menu_nav_area">
+        <ul>
+           <li routerLink="/home" (click)="close()">
+            <div class="menu_nav"><i class="fas fa-home"></i> Home</div>
+          </li>
+      <!--     <li routerLink="/about" (click)="close()">
+            <div class="menu_nav"><i class="fas fa-users"></i> About Us</div>
+          </li> -->
+        
+             <li routerLink="/attendence" (click)="close()">
+            <div class="menu_nav"><i class="fas fa-university"></i> Attendence</div>
+          </li>
+          
+         <!--  <li routerLink="/contact" (click)="close()">
+            <div class="menu_nav"><i class="far fa-address-book"></i> Contact Us</div>
+          </li> -->
+          <li *ngIf="userDetails" routerLink="/profile" (click)="close()">
+            <div class="menu_nav"><i class="fas fa-user"></i>Profile</div>
+          </li>
+        
+         
+          <li *ngIf="userDetails" routerLink="/change-password" (click)="close()">
+            <div class="menu_nav"><i class="fas fa-lock"></i>Change password</div>
+          </li>
+          <li *ngIf="!userDetails" routerLink="/login" (click)="close()">
+            <div class="menu_nav"><i class="fas fa-sign-in-alt"></i>Login</div>
+          </li>
+          <!-- <li *ngIf="!userDetails" routerLink="/register" (click)="close()">
+            <div class="menu_nav"><i class="fas fa-user-plus"></i>Sign up</div>
+          </li> -->
+         <li *ngIf="userDetails" (click)="logout()">
+            <div class="menu_nav"><i class="fas fa-sign-out-alt"></i> Logout</div>
+          </li>
+          
+        </ul>
+      </div>
+    </div>
+        
+     
+
+    </div>
+
+    </ion-content>
+    </ion-menu>
+    <ion-router-outlet id="main-content"></ion-router-outlet>
+  </ion-split-pane>
+</ion-app>
+  

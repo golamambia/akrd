@@ -1,0 +1,91 @@
+<ion-header >
+  <ion-toolbar class="toolbar-background">
+  <ion-buttons slot="start" >
+   <ion-back-button class="button-native"></ion-back-button>
+</ion-buttons>
+<ion-title class="toolbar-title">Create Request</ion-title>
+  </ion-toolbar>
+</ion-header> 
+<ion-content>
+
+<ion-content>
+
+    <ion-grid>
+      <ion-item-divider  color="light">Total amount : <div> {{total_amount}}</div></ion-item-divider>
+    
+      <ion-row color="primary" justify-content-center>
+        <ion-col align-self-center size-md="6" size-lg="5" size-xs="12">
+          <!-- <div text-center>
+            <h3>Create your account!</h3>
+          </div> -->
+          <div padding>
+           <!-- <ion-item>
+    
+<ion-label position="stacked">Project</ion-label>
+    <ion-select placeholder="Select project" [(ngModel)]="project" [ngModelOptions]="{standalone: true}">
+      <ion-select-option value="Project 1">Project 1</ion-select-option>
+      <ion-select-option value="Project 2">Project 2</ion-select-option>
+      <ion-select-option value="Project 3">Project 3</ion-select-option>
+    </ion-select>
+  </ion-item> 
+  <ion-item>
+    
+<ion-label position="stacked">Expense category</ion-label>
+    <ion-select placeholder="Select category" [(ngModel)]="category" [ngModelOptions]="{standalone: true}">
+      <ion-select-option value="Travelling">Travelling</ion-select-option>
+      <ion-select-option value="Fooding">Fooding</ion-select-option>
+      <ion-select-option value="Others">Others</ion-select-option>
+    </ion-select>
+  </ion-item>  -->
+  <ion-item>
+    <ion-label position="floating">Amount</ion-label>
+    <ion-input type="number" maxlength="10" [(ngModel)]="expense_amount" [ngModelOptions]="{standalone: true}"></ion-input>
+  </ion-item>
+ 
+  <ion-item>
+    
+    <ion-label position="stacked">Mode</ion-label>
+        <ion-select interface="popover" #C (ionChange)="getModeval(C.value)" placeholder="Select mode" [(ngModel)]="uw_mode" [ngModelOptions]="{standalone: true}">
+         
+          <ion-select-option *ngFor="let ml of modelist; let i = index" value="{{ml.cd_ID}}">{{ml.cd_mode}}</ion-select-option>
+          
+        </ion-select>
+      </ion-item>
+      <ion-item *ngIf="uw_mode>1">
+        <ion-label position="floating">Txn No</ion-label>
+        <ion-textarea placeholder="Enter here..." [(ngModel)]="uw_txnno" [ngModelOptions]="{standalone: true}"></ion-textarea>
+      </ion-item>
+  <ion-item>
+  <ion-label position="floating">Description</ion-label>
+  <ion-textarea placeholder="Enter here..." [(ngModel)]="work_description" [ngModelOptions]="{standalone: true}"></ion-textarea>
+</ion-item>
+
+
+<ion-row >
+  <ion-col size="10">
+    <div *ngIf="isToggled == false">
+    <ion-button color="primary"  (click)="deposit_slip_image()" expand="block">
+       <ion-icon name="camera" slot="icon-only"></ion-icon>
+    </ion-button>
+    </div>
+  </ion-col>
+<ion-col size="2">
+  <div class="image_border" *ngIf="depositImage">
+    <img [src]="sanitizer.bypassSecurityTrustUrl(depositImage)" (click)="imageViewer(depositImage)">
+  </div>
+</ion-col>
+
+</ion-row>
+    
+<br>
+
+
+          </div>
+          <div padding>
+            <ion-button  size="large" (click)="submit_mode()"  expand="block">Send</ion-button>
+          </div>
+        </ion-col>
+      </ion-row>
+    </ion-grid>
+
+</ion-content>

@@ -1,0 +1,129 @@
+<ion-header >
+  <ion-toolbar class="toolbar-background">
+  <ion-buttons slot="start" >
+   <ion-back-button class="button-native"></ion-back-button>
+</ion-buttons>
+<ion-title class="toolbar-title">Attendance Data</ion-title>
+  </ion-toolbar>
+</ion-header> 
+<ion-content>
+
+<ion-content>
+<form  (ngSubmit)="register(form)">
+    <ion-grid>
+      <ion-row color="primary" justify-content-center>
+        <ion-col align-self-center size-md="6" size-lg="5" size-xs="12">
+          <!-- <div text-center>
+            <h3>Create your account!</h3>
+          </div> -->
+          <ion-grid>
+            <ion-row>
+              
+                <ion-col size="6">
+                  
+                  <ion-button size="small" color="primary" (click)="gotorequestpage()">All Attendance</ion-button>
+                </ion-col>
+                <ion-col size="6">
+                  <ion-item-divider *ngIf="total_work_time" color="light">Total work : <div> {{total_work_time}}</div></ion-item-divider>
+                  </ion-col>
+
+                </ion-row>
+            
+            <ion-row class="margin">
+              <ion-col size="12">
+                <div *ngFor="let inneritem of depositData; let i = index">
+                  <ion-item-sliding #slidingItem1 class="submitted-border">
+                    <ion-item lines="none" color="grey">
+                      <div slot="start" class="shortmargin">
+                        <h4>{{(i+1)}}</h4>
+                      </div>
+                      <ion-label class="nomargin">  
+                          <ion-row>
+                            <ion-col size="8">
+                              <h2 class="list-title"><span class="smspan">Project: </span><br>{{inneritem.project_text}}</h2>
+                            </ion-col>
+                            <ion-col size="4">
+                              <h2 class="list-title"><span class="smspan"> Time: </span><br>{{inneritem.start_time}} <span *ngIf="inneritem.end_time" style="color: black;"> - {{inneritem.end_time}}</span> </h2>
+                            </ion-col>
+                            
+                          </ion-row>
+                        </ion-label>
+                        <a *ngIf="inneritem.end_time" slot="end" (click)="edit_attendence2(i,inneritem)"><ion-icon name="create-outline"></ion-icon></a>
+                        <a *ngIf="!inneritem.end_time" slot="end" (click)="edit_attendence(i,inneritem)"> <ion-icon name="chevron-forward-outline"></ion-icon></a>
+                        <a *ngIf="inneritem.end_time" style="margin-left: 22px;margin-right: -15px;"  slot="end" (click)="remove_attendence(i,0)">  <ion-icon name="close-circle-outline"></ion-icon></a>
+                        <a *ngIf="!inneritem.end_time" style="margin-left: 22px;margin-right: -15px;"  slot="end" (click)="remove_attendence(i,1)">  <ion-icon name="close-circle-outline"></ion-icon></a>
+                    </ion-item>
+                  </ion-item-sliding>
+                </div>
+              </ion-col>
+            </ion-row>
+              <ion-row class="margin" >
+             
+              <!-- <ion-col size="12" *ngIf="checkinFirststaus">
+                <div class="ion-text-center">
+                <ion-button color="primary" fill="outline" (click)="addAttendence()">
+                  <ion-icon slot="start" name="add-circle-outline"></ion-icon>
+                  Add Attendance
+                </ion-button>
+              </div>
+              </ion-col> -->
+              <span *ngIf="attendence_status">
+             
+                <ion-col size="12" *ngIf="!checkin">
+                  <div class="ion-text-center">
+                  <ion-button color="primary" fill="outline" (click)="addAttendence()">
+                    <ion-icon slot="start" name="add-circle-outline"></ion-icon>
+                    Add Attendance
+                  </ion-button>
+                </div>
+                </ion-col>
+             
+  
+              </span>
+
+            </ion-row>
+            <!-- <ion-row class="margin"  *ngIf="attendence_status">
+             
+              <ion-col size="12" *ngIf="!checkin && !checkinFirststaus">
+                <div class="ion-text-center">
+                <ion-button color="primary" fill="outline" (click)="checkinFirst()">
+                  <ion-icon slot="start" name="add-circle-outline"></ion-icon>
+                  Check in first
+                </ion-button>
+              </div>
+              </ion-col>
+           
+
+            </ion-row> -->
+            <ion-row class="margin"  *ngIf="attendence_statusmsg">
+             
+              <ion-col size="12" >
+                <div class="ion-text-center">
+                <ion-button color="warning" fill="outline" >
+                  
+                 {{attendence_statusmsg}}
+                </ion-button>
+              </div>
+              </ion-col>
+           
+
+            </ion-row>
+
+          </ion-grid>
+          <div *ngIf="attendence_status">
+          <div padding *ngIf="depositData.length && !checkin">
+            <ion-button  size="large" (click)="submit()"  expand="block">Final Submit</ion-button>
+          </div>
+          <div padding *ngIf="(!depositData.length && checkin==0) || (depositData.length && checkin>0)">
+            <ion-button  size="large"  [disabled]="true"  expand="block">Final Submit</ion-button>
+          </div>
+        </div>
+
+        </ion-col>
+      </ion-row>
+    </ion-grid>
+    
+  </form>
+  
+
+</ion-content>

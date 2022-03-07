@@ -1,0 +1,526 @@
+/*
+ * App Global CSS
+ * ----------------------------------------------------------------------------
+ * Put style rules here that you want to apply globally. These styles are for
+ * the entire app and not just one component. Additionally, this file can be
+ * used as an entry point to import other CSS/Sass files to be included in the
+ * output CSS.
+ * For more information on global stylesheets, visit the documentation:
+ * https://ionicframework.com/docs/layout/global-stylesheets
+ */
+
+/* Core CSS required for Ionic components to work properly */
+@import "~@ionic/angular/css/core.css";
+
+/* Basic CSS for apps built with Ionic */
+@import "~@ionic/angular/css/normalize.css";
+@import "~@ionic/angular/css/structure.css";
+@import "~@ionic/angular/css/typography.css";
+@import '~@ionic/angular/css/display.css';
+
+/* Optional CSS utils that can be commented out */
+@import "~@ionic/angular/css/padding.css";
+@import "~@ionic/angular/css/float-elements.css";
+@import "~@ionic/angular/css/text-alignment.css";
+@import "~@ionic/angular/css/text-transformation.css";
+@import "~@ionic/angular/css/flex-utils.css";
+
+/*
+@import url("https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.14.0/css/all.min.css");
+@import url("https://cdnjs.cloudflare.com/ajax/libs/material-design-iconic-font/2.2.0/css/material-design-iconic-font.min.css");
+
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@100;200;300;400;500;600;700;719;800;900&display=swap');
+ion-header ion-toolbar:first-of-type {
+    position: absolute;
+    width: 100%;
+    top: 0;
+    left: 0;
+}*/
+.toolbar-background {
+    --background: #071662 !important;
+}
+.button-native {
+    --color: #fff !important;
+    padding-top: 0px;
+}
+.toolbar-title {
+font-family: 'Inter Regular';
+	padding-top: 0px;
+    color: white;
+   
+}
+
+@font-face {   
+  font-family: 'Inter Regular';
+  src: url('./assets/fonts/Inter-Regular.ttf');
+}
+@font-face {   
+  font-family: 'Inter Medium';
+  src: url('./assets/fonts/Inter-Medium.ttf');
+}
+
+@font-face {   
+  font-family: 'Inter Semibold';
+  src: url('./assets/fonts/Inter-SemiBold.ttf');
+}
+
+@font-face {   
+  font-family: 'Inter Bold';
+  src: url('./assets/fonts/Inter-Bold.ttf');
+}
+
+@font-face {   
+  font-family: 'Inter Black';
+  src: url('./assets/fonts/Inter-Black.ttf');
+}
+
+
+html,
+body {
+  font-family: 'Inter', sans-serif;
+}
+.form-group {
+  width: 100%;
+  box-sizing: border-box;
+  position: relative;
+  margin: 0 0 25px;
+}
+select.form-control {
+  width: 100%;
+  height: 52px;
+  border-radius: 6px;
+  border: 1px solid #8e8e8d;
+  font-size: 14px;
+  font-weight: 400;
+  color: #616161;
+  padding: 15px 15px;
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  outline: none;
+  background-color: transparent;
+  background: transparent;
+  font-family: 'Inter Regular';
+}
+.form-group .arrow {
+  position: absolute;
+  top: 17px;
+  right: 17px;
+}
+select.form-control:focus {
+  border-color: #071662;
+  background-color: transparent;
+  background: transparent;
+}
+.form-group label {
+  position: absolute;
+  top: -10px;
+  left: 12px;
+  background: #ffffff;
+  font-size: 15px;
+  font-weight: 600;
+  color: #000000;
+  padding: 0 2px;
+  font-family: 'Inter Regular';
+}
+.form-control {
+  width: 100%;
+  height: 52px;
+  border-radius: 6px;
+  border: 1px solid #8e8e8d;
+  font-size: 14px;
+  font-weight: 400;
+  color: #616161;
+  padding: 15px 15px;
+  font-family: 'Inter Regular';
+}
+input:focus {
+  --highlight-background: #da1010;
+}
+.item-has-focus {
+  --highlight-background: #e2e2e2;
+}
+.btn {
+  width: 100%;
+  height: 52px;
+  background: #071662;
+  border: 1px solid #071662;
+  color: #ffff;
+  text-transform: uppercase;
+  font-size: 16px;
+  font-weight: 500;
+  outline: none;
+  border-radius: 6px;
+  letter-spacing: 1px;
+  font-family: 'Inter Regular';
+}
+.btn-dis-color{
+  color:#727272 !important;
+}
+.ref_btn {
+  background-color: #071662;
+  padding-top: 7px;
+  padding-left: 8px;
+}
+.disable {
+  pointer-events: none;
+}
+.time-lable {
+  z-index: 11;
+}
+
+//.........listing
+
+
+.card-box {
+  box-shadow: 1px 1px 12px 0px lightgrey;
+  border-radius: 8px;
+  margin-bottom: 12px;
+  padding: 2px 5px 0 5px;
+}
+.card-icon {
+  font-size: 50px;
+  color: #071662;
+}
+.right-box-margin {
+  margin: 2px 2px 2px 28px;
+}
+.title-today {
+  font-size: 16px;
+  color: #071662;
+  font-family: "Inter Regular";
+  font-weight: 600;
+}
+.title-date {
+  margin: 6px 0 0 4px;
+  font-size: 15px;
+  font-weight: 600;
+  color: #006fa3;
+  font-family: "Inter Regular";
+}
+
+.list-header-md {
+  border-top: 0;
+}
+
+.segment-md .segment-button.activated,
+.segment-md .segment-button.segment-activated {
+  color: white;
+  border-color: #ffffff;
+  opacity: 1;
+  font-size: 14px;
+}
+
+.segment-md .segment-button {
+  color: white;
+  font-size: 14px;
+}
+
+ion-segment-button.inner-segment.segment-button.segment-activated {
+  color: black;
+  border-color: black;
+}
+ion-segment-button.inner-segment.segment-button {
+  color: lightgrey;
+  font-size: 14px;
+}
+.cs-header {
+  margin-bottom: 0;
+  background: white;
+  margin: 7px 0;
+  border-radius: 4px;
+}
+.checked {
+  color: green;
+}
+.cross {
+  color: red;
+}
+.backgrey {
+  background: rgba(0, 0, 0, 0.1);
+}
+.searchbar-md {
+  padding: 10px 0;
+}
+.cscard {
+  padding: 0;
+}
+.cscard .label-md {
+  margin: 0;
+}
+.cscard .item-md {
+  padding-left: 8px;
+}
+.cslist {
+  background: white;
+}
+.cslist .card-md {
+  margin: 0;
+  width: 100%;
+}
+.cslist .sc-ion-card-md-h {
+  margin-left: 0;
+  margin-right: 0;
+}
+.icon-big {
+  font-size: 1.6em;
+}
+.icon-right {
+  margin: 0;
+  padding: 0px;
+  line-height: 0;
+  float: right;
+}
+.back ion-item-sliding {
+  /*border: 1px solid #deeaff;*/
+  border-radius: 4px;
+  // box-shadow: 1px 1px 5px lightgrey;
+  box-shadow: 0 2px 2px 0 rgba(0, 0, 0, 0.14),
+    0 3px 1px -2px rgba(0, 0, 0, 0.12), 0 1px 5px 0 rgba(0, 0, 0, 0.2);
+}
+.list-md {
+  margin: 0px 0 12px;
+}
+.list-md ion-item-options {
+  border-bottom: none;
+}
+.forward-icon {
+  font-size: 2em;
+}
+.bordered-row {
+  border: 1px solid gainsboro;
+  padding: 7px 0;
+  margin-bottom: 10px;
+  border-radius: 4px;
+}
+.bordered-row-slip {
+  border: 1px solid gainsboro;
+  padding: 1px 0;
+  margin-bottom: 10px;
+  border-radius: 4px;
+}
+.bordered-row-blue-slip {
+  border: 1px solid #0091ea;
+  padding: 1px 0;
+  margin-bottom: 10px;
+  border-radius: 4px;
+}
+.bordered-row-slip .label-md,
+.bordered-row-blue-slip .label-md {
+  margin: 3px 0px 3px 0;
+}
+.bordered-row-blue-slip .label-md,
+.bordered-row-blue-slip .text-input[disabled] {
+  color: #0091ea;
+}
+.bordered-row-blue-slip .item-button {
+  padding: 5px 8px;
+  height: auto;
+  font-size: 2.2rem;
+  box-shadow: none;
+}
+.back {
+  background: #f8f8f8;
+}
+.image_border {
+  border: 1px dashed lightgrey;
+  padding: 3px 3px 0px 3px;
+  border-radius: 6px;
+}
+.image_border img {
+  border-radius: 4px;
+  height: 35px;
+  width: 32px;
+}
+.list-title {
+color: #006fa3;
+    font-size: 15px !important;
+    font-family: "Inter Regular";
+   /* font-weight: 600 !important;*/
+}
+.list-title span {
+  color: #00b0ff;
+}
+.list-arrow {
+  color: #00b0ff;
+}
+.item-p {
+  color: #9e9e9e;
+}
+.pending-border {
+  border-left: 3px solid #ff0027;
+  margin-bottom: 12px;
+}
+.processing-border {
+  border-left: 3px solid #ffdc00;
+  margin-bottom: 12px;
+}
+.completed-border {
+  border-left: 3px solid #25e6c1;
+  margin-bottom: 12px;
+}
+.submitted-border {
+  margin-bottom: 12px;
+}
+.approved-border {
+  border-left: 3px solid #663399;
+  margin-bottom: 12px;
+}
+.back-grey {
+  background: #e8e8e8;
+  z-index: 9999999;
+}
+
+ion-card-header {
+  font-weight: bold;
+}
+.nonet {
+  background: red;
+  color: white;
+  text-align: center;
+  width: 100%;
+  font-size: 14px;
+  z-index: 9999;
+}
+.smspan {
+  font-size: 14px;
+  color: #071662 !important;
+  font-family: "Inter Regular";
+  font-weight: 600;
+}
+.nomargin {
+  margin-top: 2px;
+  margin-bottom: 2px;
+}
+.shortmargin {
+  margin-right: 12px !important;
+  background: red;
+}
+.margin {
+  margin-top: 8px;
+}
+.active-col {
+  background-color: green;
+  border-radius: 8px 0 0 8px;
+}
+.inactive-col {
+  background-color: #ffae00;
+  border-radius: 8px 0 0 8px;
+}
+.reject-col {
+  background-color: rgb(236, 11, 11);
+  border-radius: 8px 0 0 8px;
+}
+.payment_done-col {
+    background-color: #075bef;
+    border-radius: 8px 0 0 8px;
+}
+.pending-col {
+  background-color: #73e5a0;
+  border-radius: 8px 0 0 8px;
+}
+.ion-badge {
+  background: transparent;
+  color: #000;
+  font-size: 14px;
+  font-family: "Inter Regular";
+  position: absolute;
+    top: -11px;
+    right: 45px;
+}
+.ion-badgeatn-pen {
+  background: transparent;
+  color: #000;
+  font-size: 14px;
+  font-family: "Inter Regular";
+  position: absolute;
+    top: -11px;
+    right: 26px;
+}
+.ion-badge-suc {
+  background: transparent;
+  color: #fff;
+  font-size: 14px;
+  font-family: "Inter Regular";
+  position: absolute;
+    top: -11px;
+    right: 50px;
+}
+.ion-badgeatn-suc {
+  background: transparent;
+  color: #fff;
+  font-size: 14px;
+  font-family: "Inter Regular";
+  position: absolute;
+    top: -11px;
+    right: 43px;
+}
+.ion-badgeatnlist-suc {
+  background: transparent;
+  color: #fff;
+  font-size: 14px;
+  font-family: "Inter Regular";
+  position: absolute;
+    top: -11px;
+    right: 24px;
+}
+.ion-badge-done {
+    background: transparent;
+    color: #fff;
+    font-size: 14px;
+    font-family: "Inter Regular";
+    position: absolute;
+    top: -11px;
+    right: 32px;
+}
+.ion-badge-pend {
+  background: transparent;
+  color: #000;
+  font-size: 14px;
+  font-family: "Inter Regular";
+  position: absolute;
+    top: -11px;
+    right: 10px;
+}
+.status-title {
+  transform: rotate(270deg);
+  
+}
+.popover_setting .popover-content {
+   top: 63px !important;
+    right: 10px !important;
+    transform-origin: right top !important;
+    left:auto !important;
+}
+.item-class{
+  font-family: 'Inter Regular';
+}
+.item-icon{
+  color: #27a784;
+  margin-right: 15px;
+}
+.alert-wrapper.sc-ion-alert-md{
+  border: 1px solid white !important;
+}
+.readonly{
+  pointer-events: none;
+}
+.profile_icon {
+    position: absolute;
+    top: 83px;
+    right: -116px;
+    left: 0;
+    font-size: 27px;
+}
+.profile_icon_btn {
+    color: white;
+    border: 2px solid white;
+    padding: 7px;
+    border-radius: 30px;
+}
+select option{
+  font-size:11px !important;
+  font-family: "Inter Regular";
+}
+ion-card {
+  background: #fff !important;
+}

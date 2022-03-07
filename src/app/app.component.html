@@ -1,0 +1,86 @@
+<ion-app>
+  <ion-split-pane contentId="main-content">
+    <ion-menu contentId="main-content" type="overlay">
+
+      <div class="body_warrper">
+
+        <div class="menu_area">
+          <div class="menu_profile">
+            <div class="w-100">
+              <div class="menu_img" *ngIf="!userDetails?.profile_pic">
+                <img src="assets/images/user.png" alt="icon" title="">
+                
+                
+              </div>
+              <div class="menu_img" *ngIf="userDetails?.profile_pic">
+                <img src="{{imag_path + userDetails?.profile_pic}}" alt="">
+
+              </div>
+              <!-- <h1>{{userDetails?.code}}</h1> -->
+              <!-- <h1 *ngIf="!userDetails?.first_name"></h1> -->
+              <p style="font-size: 21px;font-weight: bold;font-family: 'Inter Medium';">{{userDetails?.full_name}}</p>
+
+            </div>
+            <div  class="profile_icon" routerLink="/profile" (click)="close()">
+              <ion-icon  style="color: white;
+    border: 2px solid white;
+    padding: 7px;
+    border-radius: 30px;" name="camera-outline"></ion-icon>
+                 
+                </div>
+          </div>
+          <ion-grid>
+            <ion-list id="labels-list" *ngIf="userDetails">
+              <!--  <ion-list-header>Module</ion-list-header> -->
+             
+               <ion-item lines="none" routerLink="/workexpense-list" (click)="close()">
+                <ion-icon slot="start" ios="bookmark-outline" md="cart-outline"></ion-icon>
+                <ion-label>Blood Report</ion-label>
+              </ion-item>
+              
+             <!--  <ion-item lines="none" routerLink="/attendence-report" (click)="close()">
+                <ion-icon slot="start" ios="bookmark-outline" md="book-outline"></ion-icon>
+                <ion-label>Attendance Report</ion-label>
+              </ion-item> -->
+              <!-- <ion-item lines="none" routerLink="/attendence-report" (click)="close()">
+            <ion-icon slot="start" ios="bookmark-outline" md="bookmark-sharp"></ion-icon>
+            <ion-label>Profile</ion-label>
+          </ion-item>
+          <ion-item lines="none" routerLink="/attendence-report" (click)="close()">
+            <ion-icon slot="start" ios="bookmark-outline" md="bookmark-sharp"></ion-icon>
+            <ion-label>Change password</ion-label>
+          </ion-item> -->
+        
+              <ion-item *ngIf="userDetails" lines="none" (click)="logout()">
+                <ion-icon slot="start" ios="bookmark-outline" md="log-out-outline"></ion-icon>
+                <ion-label>Logout</ion-label>
+              </ion-item>
+
+            </ion-list>
+           <!--  <ion-list id="inbox-list" *ngIf="userDetails" style="
+        border-bottom: 1px #071662 solid;
+    ">
+            </ion-list> -->
+
+            <ion-list *ngIf="!userDetails">
+              <ion-item *ngIf="!userDetails" lines="none" routerLink="/login" (click)="close()">
+                <ion-icon slot="start" ios="bookmark-outline" md="log-in-outline"></ion-icon>
+                <ion-label>Login</ion-label>
+              </ion-item>
+
+            
+            </ion-list>
+
+           
+          </ion-grid>
+        </div>
+
+
+
+      </div>
+
+ <p  *ngIf="ionVersionNumber" style="text-align: center;" class="app-version">App version - {{ionVersionNumber}}</p>
+    </ion-menu>
+    <ion-router-outlet id="main-content"></ion-router-outlet>
+  </ion-split-pane>
+</ion-app>

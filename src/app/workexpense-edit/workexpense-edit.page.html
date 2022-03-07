@@ -1,0 +1,86 @@
+<ion-header >
+  <ion-toolbar class="toolbar-background">
+  <ion-buttons slot="start" >
+   <ion-back-button class="button-native"></ion-back-button>
+</ion-buttons>
+<ion-title class="toolbar-title">Blood Group Edit</ion-title>
+  </ion-toolbar>
+</ion-header> 
+
+
+<ion-content>
+
+    <ion-grid>
+      <ion-row color="primary" justify-content-center>
+        <ion-col align-self-center size-md="6" size-lg="5" size-xs="12">
+          <!-- <div text-center>
+            <h3>Create your account!</h3>
+          </div> -->
+          <div padding style="margin-top: 15px;">
+            
+<div class="form-group">
+  <label>Name</label>
+
+  <input type="text" [(ngModel)]="service_name" placeholder="Enter name" [ngModelOptions]="{standalone: true}" class="form-control"  >
+</div>
+<div class="form-group">
+  <label class="time-lable">Age</label>
+  <ion-input class="form-control"  type="number" placeholder="Enter age" maxlength="3" [(ngModel)]="s_age" [ngModelOptions]="{standalone: true}"></ion-input>
+</div> 
+<div class="form-group">
+      <label>Gender</label>
+       <select class="form-control" [(ngModel)]="s_gender" [ngModelOptions]="{standalone: true}">
+        <option value="">Select Gender</option>
+                                               <option value="male">Male</option>
+                                               <option value="female">Female</option>
+                                               <option value="other">Other</option>
+     
+    </select>
+      <div class="arrow"><img src="assets/images/select-arrow.png" alt="select arrow" title="" /></div>
+  </div>
+  <div class="form-group">
+  <label class="time-lable">Phone no</label>
+  <ion-input class="form-control" placeholder="Enter phone" type="number" maxlength="10" [(ngModel)]="s_phone" [ngModelOptions]="{standalone: true}"></ion-input>
+</div> 
+<div class="form-group">
+      <label>Blood group</label>
+       <select class="form-control" [(ngModel)]="s_blood_group" [ngModelOptions]="{standalone: true}">
+        <option value="">Select Group</option>
+                                               <option value="a_positive">A+</option>
+                                               <option value="b_positive">B+</option>
+                                               <option value="ab_positive">AB+</option>
+                                               <option value="o_positive">O+</option>
+                                               <option value="a_negative">A-</option>
+                                               <option value="b_negative">B-</option>
+                                               <option value="ab_negative">AB-</option>
+                                               <option value="o_negative">O-</option>
+     
+    </select>
+      <div class="arrow"><img src="assets/images/select-arrow.png" alt="select arrow" title="" /></div>
+  </div>
+<div class="form-group">
+  <label>Address</label>
+
+  <input type="text" [(ngModel)]="service_description" [ngModelOptions]="{standalone: true}" class="form-control" placeholder="Enter address"  >
+</div>      
+
+
+  
+
+          </div>
+         
+        </ion-col>
+      </ion-row>
+    </ion-grid>
+ 
+</ion-content>
+<ion-footer class="ion-no-border">
+  <ion-row>
+  <ion-col>
+  
+    <div padding>
+      <button class="btn"  (click)="submit_mode()">Update</button>
+    </div>
+  </ion-col>
+  </ion-row>
+  </ion-footer>

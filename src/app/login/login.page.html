@@ -1,0 +1,60 @@
+ <ion-header >
+  <ion-toolbar class="toolbar-background">
+  <ion-buttons slot="start" >
+   <ion-back-button class="button-native"></ion-back-button>
+</ion-buttons>
+<ion-title class="toolbar-title">Login</ion-title>
+  </ion-toolbar>
+</ion-header> 
+<ion-content>
+
+    <div class="apply_for_payout_area">
+        <!-- <div class="shape_box"><img src="assets/images/sape10.png" alt="sape10" title="" /></div> -->
+        <div class="apply_for_payout">
+            <div class="container">
+                <!-- <div class="logo"><img src="assets/images/inner-logo.png" alt="logo" title="" /></div> -->
+                <h1>Fill the Below information to Log In</h1>
+                <div class="form_box">
+                    <div class="form">
+                        <h3>Login</h3>
+                        <div class="form-group">
+                            <input type="text" class="form-control" placeholder="Enter your username"  [(ngModel)]="email" [ngModelOptions]="{standalone: true}"/>
+                        </div>
+                        <div class="form-group" style="position: relative;">
+                             <input  type="{{ isActive ? 'password' : 'text' }}"  class="form-control" placeholder="Enter your Password" [(ngModel)]="password" [ngModelOptions]="{standalone: true}">
+                        <div *ngIf="isActive" style="position: absolute;
+                        right: 0;
+                        top: 0px;
+                        bottom: 0px;
+                        width: 38px;
+                        /* background: red; */
+                        text-align: center;
+                        padding-top: 10px;" (click)="inputChange(1)"><ion-icon name="eye-off-outline" style="font-size: 26px;"></ion-icon>
+                        </div>
+                            
+                            <div *ngIf="!isActive" style="position: absolute;
+                        right: 0;
+                        top: 0px;
+                        bottom: 0px;
+                        width: 38px;
+                        /* background: red; */
+                        text-align: center;
+                        padding-top: 10px;" (click)="inputChange(0)"><ion-icon name="eye-outline" style="font-size: 26px;"></ion-icon>
+                        </div>
+                            
+                        </div>
+                        <div class="form-check">
+                            <!-- <label class="form-check-label">
+                                <input type="checkbox" class="form-check-input" value="">Keep me logged in
+                            </label> -->
+                          <!--  <button class="btn-link" routerLink="/forgot-password">Forgot Password?</button> -->
+                        </div>
+                       <button class="btn" (click)="login()">login</button>
+                    </div>
+                </div>
+              
+            </div>
+        </div>
+    </div>
+
+</ion-content>

@@ -1,0 +1,129 @@
+<ion-header >
+  <ion-toolbar class="toolbar-background">
+  <ion-buttons slot="start" >
+   <ion-back-button class="button-native"></ion-back-button>
+</ion-buttons>
+<ion-title class="toolbar-title">Attendance Report</ion-title>
+  </ion-toolbar>
+</ion-header> 
+
+
+<ion-content>
+
+    <ion-grid>
+      <div class="card-box" style="padding-top: 11px;">
+                <ion-row >
+                                   
+
+         <ion-col align-self-center size="6" >
+              <div class="form-group"  >
+                <label class="time-lable">Date</label>
+              
+               <ion-datetime [pickerOptions]="customPickerOptionFrom" class="form-control" #D (ionChange)="selectDate(D.value)" placeholder="Date (M/Y)" displayFormat="MMM/YYYY"  [(ngModel)]="search_date" [ngModelOptions]="{standalone: true}" ></ion-datetime>
+              </div>
+              
+           
+            </ion-col>
+            <ion-col align-self-center size="6" >
+              <div class="form-group"  >
+                <label class="time-lable">Report of </label>
+              <input class="form-control" style="pointer-events: none;" type="text" name="" value="{{report_date}}">
+              
+              </div>
+              
+           
+            </ion-col>
+        </ion-row>
+           </div>
+         
+
+        <div>
+            <ion-row>
+              
+              <ion-col size="6">
+                <div class="card-box" >
+                <ion-row>
+                  <ion-col size="2">
+                <ion-icon class="card-icon" name="calendar-outline"></ion-icon>
+                   </ion-col>
+                   <ion-col size="10">
+                <div class="right-box-margin">   <span class="title-today" style="font-size: 12px;" >Total working days</span> 
+                 <p class="title-date"> {{total_workmonth_day}}</p>
+                </div>
+                </ion-col>
+                </ion-row>
+                </div>
+              
+            </ion-col>
+           
+                 <ion-col size="6">
+                <div class="card-box" >
+                <ion-row>
+                  <ion-col size="2">
+                <ion-icon class="card-icon" name="calendar-outline"></ion-icon>
+                   </ion-col>
+                   <ion-col size="10">
+                <div class="right-box-margin">   <span class="title-today" >Working days</span> 
+                 <p class="title-date"> {{total_work_day}}</p>
+                </div>
+                </ion-col>
+                </ion-row>
+                </div>
+              
+             
+             
+            </ion-col>
+              <ion-col size="6">
+                <div class="card-box" >
+                <ion-row>
+                  <ion-col size="2">
+                <ion-icon class="card-icon" name="calendar-outline"></ion-icon>
+                   </ion-col>
+                   <ion-col size="10">
+                <div class="right-box-margin">   <span class="title-today"  >Sundays</span> 
+                 <p class="title-date"> {{total_sun_day}}</p>
+                </div>
+                </ion-col>
+                </ion-row>
+                </div>
+              
+            </ion-col>
+            <ion-col size="6">
+                <div class="card-box" >
+                <ion-row>
+                  <ion-col size="2">
+                <ion-icon class="card-icon" name="calendar-outline"></ion-icon>
+                   </ion-col>
+                   <ion-col size="10">
+                <div class="right-box-margin">   <span class="title-today">Holiday taken</span> 
+                 <p class="title-date"> {{total_holiday_taken}}</p>
+                </div>
+                </ion-col>
+                </ion-row>
+                </div>
+              
+            </ion-col>
+               <ion-col size="6">
+                <div class="card-box" >
+                <ion-row>
+                  <ion-col size="2">
+                <ion-icon class="card-icon" name="calendar-outline"></ion-icon>
+                   </ion-col>
+                   <ion-col size="10">
+                <div class="right-box-margin">   <span class="title-today"  >Comp taken</span> 
+                 <p class="title-date"> {{total_comp_day}}</p>
+                </div>
+                </ion-col>
+                </ion-row>
+                </div>
+              
+            </ion-col>
+                </ion-row>
+              </div>
+
+
+    </ion-grid>
+    
+  
+
+</ion-content>

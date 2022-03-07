@@ -1,0 +1,7 @@
+{
+  "name": "erpmanagement",
+  "integrations": {
+    "cordova": {}
+  },
+  "type": "angular"
+}

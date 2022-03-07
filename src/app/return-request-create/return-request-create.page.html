@@ -1,0 +1,106 @@
+<ion-header >
+  <ion-toolbar class="toolbar-background">
+  <ion-buttons slot="start" >
+   <ion-back-button class="button-native"></ion-back-button>
+</ion-buttons>
+<ion-title class="toolbar-title">Create Request</ion-title>
+  </ion-toolbar>
+</ion-header> 
+
+
+<ion-content>
+
+    <ion-grid>
+      <div>
+            <ion-row>
+               <ion-col size="2"></ion-col>
+              <ion-col size="8">
+                <div class="card-box" >
+                <ion-row>
+                  <ion-col size="2">
+                <ion-icon class="card-icon" name="wallet-outline"></ion-icon>
+                   </ion-col>
+                   <ion-col size="10">
+                <div class="right-box-margin">   <span class="title-today"  >Total amount</span> 
+                 <p class="title-date"> {{total_amount}}</p>
+                </div>
+                </ion-col>
+                </ion-row>
+                </div>
+              
+             
+             
+            </ion-col>
+           
+                
+             
+               
+                </ion-row>
+              </div>
+    
+    
+      <ion-row color="primary" justify-content-center>
+        <ion-col align-self-center size-md="6" size-lg="5" size-xs="12">
+         
+        <div class="card-box" style="padding-top: 11px;">
+       <div class="form-group">
+  <label class="time-lable">Amount</label>
+  <ion-input class="form-control"  type="number" maxlength="10" [(ngModel)]="expense_amount" [ngModelOptions]="{standalone: true}"></ion-input>
+</div> 
+ 
+  <div class="form-group">
+      <label>Mode</label>
+       <select class="form-control" #C (ionChange)="getModeval(C.value)" [(ngModel)]="uw_mode" [ngModelOptions]="{standalone: true}">
+        <option  value="">Select mode</option>
+        <option *ngFor="let ml of modelist; let i = index" value="{{ml.cd_ID}}">{{ml.cd_mode}}</option>
+     
+    </select>
+      <div class="arrow"><img src="assets/images/select-arrow.png" alt="select arrow" title="" /></div>
+  </div>
+    <div class="form-group" uw_txnno>
+  <label>Txn No</label>
+
+  <input type="text" [(ngModel)]="uw_txnno" [ngModelOptions]="{standalone: true}" class="form-control" placeholder="Enter here..."  >
+</div>
+   <div class="form-group">
+  <label>Description</label>
+
+  <input type="text" [(ngModel)]="work_description" [ngModelOptions]="{standalone: true}" class="form-control" placeholder="Enter here..."  >
+</div>
+       
+<ion-row  >
+    <ion-col size="3">
+  <div class="form-group">
+    <label style="margin-top: -12px !important;left: 0;">Proof</label>
+   
+    <div class="form-control" style="height: 70px;padding-left: 22px;"><span (click)="selectImage()" ><ion-icon style="font-size: 35px;
+      color: #00f1b0;" name="camera-outline"></ion-icon></span></div>
+     </div>
+    </ion-col>
+    <ion-col size="2">
+      <div class="image_border" *ngIf="depositImage"  style="height: 70px;">
+        <img [src]="sanitizer.bypassSecurityTrustUrl(depositImage)" (click)="imageViewer(depositImage)">
+      </div>
+    </ion-col>
+      
+  </ion-row>
+
+ 
+
+          </div>
+          
+        </ion-col>
+      </ion-row>
+    </ion-grid>
+
+</ion-content>
+<ion-footer class="ion-no-border">
+  <ion-row>
+  <ion-col>
+  
+    <div padding>
+      <button class="btn"  (click)="submit_mode()">Send</button>
+    </div>
+  </ion-col>
+  </ion-row>
+  </ion-footer>

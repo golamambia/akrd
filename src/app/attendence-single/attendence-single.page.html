@@ -1,0 +1,91 @@
+<ion-header >
+  <ion-toolbar class="toolbar-background">
+  <ion-buttons slot="start" >
+   <ion-back-button class="button-native"></ion-back-button>
+</ion-buttons>
+<ion-title class="toolbar-title">Attendence</ion-title>
+  </ion-toolbar>
+</ion-header> 
+<ion-content>
+
+<ion-content>
+
+    <ion-grid>
+      <ion-row color="primary" justify-content-center>
+        <ion-col align-self-center size-md="6" size-lg="5" size-xs="12">
+          <!-- <div text-center>
+            <h3>Create your account!</h3>
+          </div> -->
+          <div padding>
+           <ion-item>
+    
+<ion-label position="stacked">Project</ion-label>
+    <ion-select interface="popover" placeholder="Select project" [(ngModel)]="project" [ngModelOptions]="{standalone: true}">
+      <ion-select-option value="Project 1">Project 1</ion-select-option>
+      <ion-select-option value="Project 2">Project 2</ion-select-option>
+      <ion-select-option value="Project 3">Project 3</ion-select-option>
+    </ion-select>
+  </ion-item> 
+  <ion-item>
+    
+<ion-label position="stacked">Attendance category</ion-label>
+    <ion-select interface="popover" placeholder="Select category" [(ngModel)]="category" [ngModelOptions]="{standalone: true}">
+      <ion-select-option value="Category 1">Category 1</ion-select-option>
+      <ion-select-option value="Category 2">Category 2</ion-select-option>
+      <ion-select-option value="Category 3">Category 3</ion-select-option>
+    </ion-select>
+  </ion-item> 
+    <ion-item>
+    
+<ion-label position="stacked">Select start time</ion-label>
+    
+       <ion-datetime displayFormat="H:mm" [min]="minTime" [max]="minTime" [(ngModel)]="start_time" [ngModelOptions]="{standalone: true}" (ionChange)="setMainTime()"></ion-datetime>
+    
+  </ion-item>
+   <ion-item>
+    
+<ion-label position="stacked">Select end time</ion-label>
+   
+     <ion-datetime displayFormat="H:mm"  [max]="maxTime" [min]="start_timenw" [(ngModel)]="end_time" [ngModelOptions]="{standalone: true}"></ion-datetime>
+   
+  </ion-item>
+  <ion-item>
+  <ion-label position="floating">Work description</ion-label>
+  <ion-textarea placeholder="Enter more information here..." [(ngModel)]="work_description" [ngModelOptions]="{standalone: true}"></ion-textarea>
+</ion-item>
+<!-- <ion-item>
+      <ion-label position="stacked">Image</ion-label>
+      <ion-input type="file" accept="image/*" id="upload"  (ionChange)="imageFilePath_change($event)"></ion-input>
+    </ion-item> -->
+
+    <ion-col size="2">
+      <div class="image_border" *ngIf="depositImage">
+      <img [src]="sanitizer.bypassSecurityTrustUrl(depositImage)" (click)="imageViewer(depositImage)">
+      </div>
+    </ion-col>
+    <ion-col size="2">
+      <div *ngIf="isToggled == false">
+      <ion-button color="primary"  (click)="deposit_slip_image()" expand="block">
+        Image <ion-icon name="camera" slot="icon-only"></ion-icon>
+      </ion-button>
+      </div>
+    </ion-col>
+    <ion-item>
+      <ion-label position="stacked" style="position: relative;">Location </ion-label>
+      <div style="position: absolute;right: 15px;top: 6px;"><span (click)="getLocation()" style="font-size: 25px;"><ion-icon name="refresh-circle-outline"></ion-icon></span></div>
+      <div *ngIf="address==''"></div>
+      <div *ngIf="address">{{address}}</div>
+    </ion-item>
+
+<br>
+
+
+          </div>
+          <div padding>
+            <ion-button  size="large" (click)="submit_mode()"  expand="block">Save</ion-button>
+          </div>
+        </ion-col>
+      </ion-row>
+    </ion-grid>
+  
+</ion-content>

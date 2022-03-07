@@ -1,0 +1,73 @@
+<ion-header >
+  <ion-toolbar class="toolbar-background">
+  <ion-buttons slot="start" >
+   <ion-back-button class="button-native"></ion-back-button>
+</ion-buttons>
+<ion-title class="toolbar-title">Leave Request</ion-title>
+  </ion-toolbar>
+</ion-header> 
+<ion-content>
+
+<ion-content>
+
+    <ion-grid>
+      <ion-item-divider  color="light">Total Medical Leave : <div>{{total_leave.med}} </div></ion-item-divider>
+    
+      <ion-row color="primary" justify-content-center>
+        <ion-col align-self-center size-md="6" size-lg="5" size-xs="12">
+          <!-- <div text-center>
+            <h3>Create your account!</h3>
+          </div> -->
+          <div padding>
+  
+  <ion-item>
+    <ion-label position="floating">Leave create</ion-label>
+    
+    <ion-select  interface="popover"  placeholder='Select one' [(ngModel)]="leave_type" [ngModelOptions]="{standalone: true}">
+      <ion-select-option  value="1sthalf">1st Half</ion-select-option>
+      <ion-select-option  value="2ndhalf">2nd Half</ion-select-option>
+      <ion-select-option  value="fullday">Full Day</ion-select-option>
+    </ion-select>
+  
+  </ion-item>
+  <ion-item>
+  <ion-label position="stacked">Date</ion-label>
+              
+                 <ion-datetime   placeholder="Date (D/M/Y)" displayFormat="DD/MMM/YYYY"  [(ngModel)]="leave_date" [ngModelOptions]="{standalone: true}" ></ion-datetime>
+              
+            </ion-item>
+      
+  <ion-item>
+  <ion-label position="floating">Reason</ion-label>
+  <ion-textarea placeholder="Enter here..." [(ngModel)]="leave_description" [ngModelOptions]="{standalone: true}"></ion-textarea>
+</ion-item>
+
+<ion-row >
+  <ion-col size="10">
+    <div *ngIf="isToggled == false">
+    <ion-button color="primary"  (click)="deposit_slip_image()" expand="block">
+       <ion-icon name="camera" slot="icon-only"></ion-icon>
+    </ion-button>
+    </div>
+  </ion-col>
+<ion-col size="2">
+  <div class="image_border" *ngIf="depositImage">
+    <img [src]="sanitizer.bypassSecurityTrustUrl(depositImage)" (click)="imageViewer(depositImage)">
+  </div>
+</ion-col>
+
+</ion-row>
+  
+    
+<br>
+
+
+          </div>
+          <div padding>
+            <ion-button  size="large" (click)="submit_mode()"  expand="block">Submit</ion-button>
+          </div>
+        </ion-col>
+      </ion-row>
+    </ion-grid>
+
+</ion-content>

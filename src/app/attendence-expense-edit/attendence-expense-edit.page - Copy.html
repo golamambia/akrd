@@ -1,0 +1,106 @@
+<ion-header >
+  <ion-toolbar class="toolbar-background">
+  <ion-buttons slot="start" >
+   <ion-back-button class="button-native"></ion-back-button>
+</ion-buttons>
+<ion-title class="toolbar-title">Expense Edit</ion-title>
+  </ion-toolbar>
+</ion-header> 
+<ion-content>
+
+<ion-content>
+
+    <ion-grid>
+      <ion-row color="primary" justify-content-center>
+        <ion-col align-self-center size-md="6" size-lg="5" size-xs="12">
+          <!-- <div text-center>
+            <h3>Create your account!</h3>
+          </div> -->
+          <div padding>
+            <ion-item>
+    
+              <ion-label position="stacked">Project</ion-label>
+                  <ion-select interface="popover" placeholder={{project_text}} [(ngModel)]="project" [ngModelOptions]="{standalone: true}">
+                    <ion-select-option *ngFor="let val of projecy_list; let i = index" value="{{val.ID}}">{{val.project_id}} > {{val.sub_project_id}}</ion-select-option>
+                  </ion-select>
+                </ion-item> 
+                <ion-item>
+                  
+              <ion-label position="stacked">Expense category</ion-label>
+              <ion-select #C (ionChange)="selectChange(C.value)"  placeholder="Select category" interface="popover" [(ngModel)]="category" [ngModelOptions]="{standalone: true}">
+                <ion-select-option *ngFor="let val of category_list; let i = index" value="{{val.ec_ID}}">{{val.ec_name}}</ion-select-option>
+                 
+              </ion-select>
+                </ion-item> 
+              
+                <ion-item >
+                  
+                  <ion-label position="stacked">Type</ion-label>
+                  <ion-select #C (ionChange)="selectChangesub(C.value)" interface="popover"  placeholder="Select type" [(ngModel)]="subcategory" [ngModelOptions]="{standalone: true}">
+                    <ion-select-option *ngFor="let val of subcategory_list; let i = index" value="{{val.ec_ID}}">{{val.ec_name}}</ion-select-option>
+                     
+                  </ion-select>
+                    </ion-item>
+                    <ion-item *ngIf="category==1">
+                      <ion-label position="floating">From</ion-label>
+                      <ion-textarea [(ngModel)]="uwe_from" [ngModelOptions]="{standalone: true}"></ion-textarea>
+                    </ion-item>
+                    <ion-item *ngIf="category==1">
+                      <ion-label position="floating">To</ion-label>
+                      <ion-textarea  [(ngModel)]="uwe_to" [ngModelOptions]="{standalone: true}"></ion-textarea>
+                    </ion-item>
+                    <ion-item *ngIf="category==4 || category==11">
+                      <ion-label position="floating">Where</ion-label>
+                      <ion-textarea  [(ngModel)]="uwe_where" [ngModelOptions]="{standalone: true}"></ion-textarea>
+                    </ion-item>
+                    <ion-item>
+                      <ion-label position="stacked">Expense Date</ion-label>
+                                  
+                  <ion-datetime  placeholder="Date (D/M/Y)" [min]="minDate" [max]="maxDate" displayFormat="DD/MMM/YYYY"  [(ngModel)]="expense_date" [ngModelOptions]="{standalone: true}" ></ion-datetime>
+                </ion-item>
+  <ion-item>
+  <ion-label position="floating">Description</ion-label>
+  <ion-textarea placeholder="Enter more information here..." [(ngModel)]="work_description" [ngModelOptions]="{standalone: true}"></ion-textarea>
+</ion-item>
+<ion-item>
+  <ion-label position="floating">Amount</ion-label>
+  <ion-input type="number" maxlength="10" [(ngModel)]="expense_amount" [ngModelOptions]="{standalone: true}"></ion-input>
+</ion-item>
+<!-- <ion-item>
+      <ion-label position="stacked">Image</ion-label>
+      <ion-input type="file" accept="image/*" id="upload"  (ionChange)="imageFilePath_change($event)"></ion-input>
+    </ion-item> -->
+    <ion-row >
+      <ion-col size="10">
+        <div *ngIf="isToggled == false">
+        <ion-button color="primary"  (click)="deposit_slip_image()" expand="block">
+           <ion-icon name="camera" slot="icon-only"></ion-icon>
+        </ion-button>
+        </div>
+      </ion-col>
+    <ion-col size="2">
+      <div class="image_border" *ngIf="depositImage">
+        <img [src]="sanitizer.bypassSecurityTrustUrl(depositImage)" (click)="imageViewer(depositImage)">
+      </div>
+    </ion-col>
+    
+  </ion-row>
+   <ion-item>
+      <ion-label position="stacked" style="position: relative;">Location </ion-label>
+      <div style="position: absolute;right: 15px;top: 6px;"><span (click)="getLocationRel()" style="font-size: 25px;"><ion-icon name="refresh-circle-outline"></ion-icon></span></div>
+      
+      <div *ngIf="address">{{address}}</div>
+    </ion-item>
+
+<br>
+
+
+          </div>
+          <div padding>
+            <ion-button  size="large" (click)="submit_mode()"  expand="block">Save</ion-button>
+          </div>
+        </ion-col>
+      </ion-row>
+    </ion-grid>
+ 
+</ion-content>

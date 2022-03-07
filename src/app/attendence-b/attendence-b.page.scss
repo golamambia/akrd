@@ -1,0 +1,27 @@
+ion-grid {
+  margin-top: 10px;
+  padding-left: 10px;
+  padding-right: 10px;
+}
+.add-btn {
+  --ion-color-base: #071662 !important;
+  --ion-color-base-rgb: var(--ion-color-primary-rgb, 56, 128, 255) !important;
+  --ion-color-contrast: var(--ion-color-primary-contrast, #fff) !important;
+  --ion-color-contrast-rgb: var(
+    --ion-color-primary-contrast-rgb,
+    255,
+    255,
+    255
+  ) !important;
+  --ion-color-shade: #071662 !important;
+  --ion-color-tint: #071662 !important;
+}
+.add-btn-icon {
+  color: #3bf5c2;
+  font-size: 30px;
+}
+.ref_btn {
+  padding-top: 8px !important;
+  padding-left: 9px !important;
+  border-radius: 9px !important;
+}
